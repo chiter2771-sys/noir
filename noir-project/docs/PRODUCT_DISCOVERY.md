@@ -128,3 +128,11 @@ NOIR is a premium digital cinema for people who want to choose faster and feel t
 3. Upgrade customer copy, filters and empty states to feel like a finished product.
 4. Add richer account/watch states without introducing fake technical blocks.
 5. Run syntax/API smoke checks and commit only verified changes.
+
+## 15. Video Balancer environment contract
+- Railway variable for the API key: `NOIR_VIDEO_BALANCER_API_KEY`.
+- Optional catalog endpoint: `NOIR_VIDEO_BALANCER_CATALOG_URL`.
+- Optional iframe template: `NOIR_VIDEO_BALANCER_IFRAME_TEMPLATE`, with `{id}` or `{externalId}` placeholders for the balancer title id and `{apiKey}` only if the provider requires a signed/embed token in the iframe URL.
+- Optional provider label: `NOIR_VIDEO_BALANCER_PROVIDER`.
+- Optional auto-sync interval: `NOIR_VIDEO_BALANCER_SYNC_INTERVAL_MS`, default 30 minutes.
+- NOIR must continue serving the local normalized catalog when the balancer is unavailable, rate-limited or misconfigured.
