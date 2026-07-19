@@ -7,7 +7,7 @@ try {
   const catalog = await fetch('http://127.0.0.1:3000/api/catalog?sort=rating').then((r) => r.json());
   const search = await fetch('http://127.0.0.1:3000/api/search?q=дюна').then((r) => r.json());
   const playback = await fetch('http://127.0.0.1:3000/api/playback/dune-part-two').then((r) => r.json());
-  if (!health.ok || catalog.total < 4 || search.total < 1 || playback.status !== 'ready_for_balancer') {
+  if (!health.ok || catalog.total < 4 || search.total < 1 || !['iframe_ready', 'metadata_ready'].includes(playback.status)) {
     throw new Error('Smoke API assertions failed');
   }
   console.log('smoke api ok');
