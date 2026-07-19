@@ -104,11 +104,13 @@ NOIR is a premium digital cinema for people who want to choose faster and feel t
 ## 11. Video architecture
 - The customer UI says “Смотреть” and “Воспроизведение”; it never exposes implementation labels.
 - Server playback endpoint is the boundary for a future Video Balancer adapter.
+- Balancer provider, base URL and keys must come from the hosting environment, never from customer-facing client code.
 - Watch screen consumes catalog metadata now and can later request streams, translations, subtitles, episodes and watch position through `/api/playback/:id`.
 
 ## 12. Performance plan
 - Keep the current no-bundle architecture for first release increment.
 - Lazy-load posters/backdrops outside hero, reserve image aspect ratios, avoid CLS.
+- Serve TMDB artwork through the NOIR image proxy so deployed environments control caching, headers and resilience.
 - Use a single catalog payload, no blocking third-party scripts, preconnect to image/font origins.
 - Prefer native scrolling and CSS transitions over heavy JS animation.
 - Keep client rendering small and data-driven; future large catalogs should add pagination/virtualized rails.
