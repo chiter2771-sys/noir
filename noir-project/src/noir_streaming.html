@@ -338,6 +338,30 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 48p
 .f-lang{background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:5px;font-size:12px;cursor:pointer;transition:all .2s}
 .f-lang:hover,.f-lang.on{border-color:var(--accent);color:var(--accent-light)}
 
+
+/* ── PRODUCTION SURFACES: CATALOG / PROFILE / ARCHITECTURE ── */
+.app-surface{display:none;min-height:100vh;padding:112px 48px 48px;background:radial-gradient(circle at 20% 0,rgba(139,92,246,.16),transparent 34%),var(--bg)}
+.app-surface.on{display:block}
+.surface-hero{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:24px}
+.surface-kicker{color:var(--accent-light);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.surface-title{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.surface-desc{color:var(--muted);max-width:720px;line-height:1.65}
+.filter-panel{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:12px;background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:24px;backdrop-filter:blur(18px)}
+.filter-input,.filter-select{width:100%;background:rgba(9,9,15,.72);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:12px 14px;font-family:inherit;outline:none}
+.filter-input:focus,.filter-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(139,92,246,.14)}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(164px,1fr));gap:18px}
+.catalog-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .22s,border-color .22s}
+.catalog-card:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.55)}
+.catalog-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.catalog-card-body{padding:12px}.catalog-card-title{font-weight:800;font-size:14px;margin-bottom:5px}.catalog-card-meta{color:var(--muted);font-size:12px}
+.profile-grid{display:grid;grid-template-columns:320px 1fr;gap:22px}.profile-card,.settings-card{background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:18px;padding:20px}
+.profile-avatar-xl{width:96px;height:96px;border-radius:28px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;margin-bottom:16px}
+.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.setting-tile{padding:16px;border-radius:14px;background:var(--surface);border:1px solid var(--border)}
+.setting-tile strong{display:block;margin-bottom:6px}.setting-tile span{color:var(--muted);font-size:13px;line-height:1.5}
+.architecture-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 48px 44px}.arch-tile{background:linear-gradient(180deg,rgba(139,92,246,.12),rgba(255,255,255,.04));border:1px solid var(--border);border-radius:18px;padding:18px}.arch-tile strong{display:block;margin-bottom:8px}.arch-tile span{color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:900px){.filter-panel{grid-template-columns:1fr 1fr}.profile-grid{grid-template-columns:1fr}.app-surface{padding:92px 20px 36px}.architecture-strip{margin-left:20px;margin-right:20px}}
+@media(max-width:560px){.filter-panel{grid-template-columns:1fr}}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr}.f-desc{max-width:100%}}
 @media(max-width:768px){
@@ -402,7 +426,7 @@ svg.feather{display:block}
       <span class="notif-dot"></span>
     </button>
     <div class="user-menu-wrap">
-      <div class="nav-avatar" onclick="toggleUserMenu()">СУ</div>
+      <div class="nav-avatar" onclick="navigateSection('profile')">СУ</div>
       <div class="user-menu" id="user-menu">
         <div class="user-menu-item">👤 Профиль</div>
         <div class="user-menu-item">⚙️ Настройки</div>
@@ -1316,6 +1340,54 @@ svg.feather{display:block}
 </div>
 
 <!-- FOOTER -->
+
+<!-- CATALOG PAGE -->
+<div id="catalog-page" class="app-surface" aria-live="polite">
+  <div class="surface-hero">
+    <div>
+      <div class="surface-kicker">Умный каталог</div>
+      <h1 class="surface-title">Фильмы, сериалы и аниме без лишних кликов</h1>
+      <p class="surface-desc">Live-поиск, быстрые фильтры, сортировка, сохранение предпочтений и готовая точка расширения для серверной пагинации, кеша и виртуализации больших списков.</p>
+    </div>
+  </div>
+  <div class="filter-panel">
+    <input id="catalog-query" class="filter-input" placeholder="Поиск по названию, жанру, актёру" oninput="renderCatalog()">
+    <select id="catalog-type" class="filter-select" onchange="renderCatalog()"><option value="all">Все типы</option><option value="movie">Фильмы</option><option value="series">Сериалы</option></select>
+    <select id="catalog-genre" class="filter-select" onchange="renderCatalog()"><option value="all">Все жанры</option><option>Драма</option><option>Криминал</option><option>Научная фантастика</option><option>Детектив</option></select>
+    <select id="catalog-sort" class="filter-select" onchange="renderCatalog()"><option value="rating">По рейтингу</option><option value="year">По году</option><option value="title">По названию</option></select>
+    <button class="btn-play" onclick="saveCatalogFilters()">Сохранить</button>
+  </div>
+  <div id="catalog-grid" class="catalog-grid"></div>
+</div>
+
+<!-- PROFILE PAGE -->
+<div id="profile-page" class="app-surface">
+  <div class="surface-kicker">Профиль и безопасность</div>
+  <h1 class="surface-title">Сергей, ваш NOIR готов на всех устройствах</h1>
+  <div class="profile-grid">
+    <aside class="profile-card">
+      <div class="profile-avatar-xl">СУ</div>
+      <h2>Основной профиль</h2>
+      <p class="surface-desc">Premium • 4 устройства • детский режим выключен</p>
+    </aside>
+    <section class="settings-card">
+      <div class="settings-grid">
+        <div class="setting-tile"><strong>Продолжить просмотр</strong><span>Синхронизация позиции между браузером, Smart TV и будущими мобильными клиентами.</span></div>
+        <div class="setting-tile"><strong>OAuth</strong><span>Google, Яндекс и VK подготовлены через единые callback-маршруты и безопасные refresh-сессии.</span></div>
+        <div class="setting-tile"><strong>Устройства</strong><span>Контроль активных сессий, отзыв токенов и аудит входов.</span></div>
+        <div class="setting-tile"><strong>Уведомления</strong><span>Новые серии, продолжения франшиз, премьеры актёров и персональные рекомендации.</span></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="architecture-strip">
+  <div class="arch-tile"><strong>OAuth-ready</strong><span>Конфигурация для Google, Яндекс и VK вынесена в env и отдельный platform-config.</span></div>
+  <div class="arch-tile"><strong>Video balancer-ready</strong><span>Заложены внешние ID, переводы, сезоны, серии, качества и fallback при отсутствии источника.</span></div>
+  <div class="arch-tile"><strong>PostgreSQL schema</strong><span>Добавлена нормализованная схема для пользователей, каталога, истории, подписок и модерации.</span></div>
+  <div class="arch-tile"><strong>Railway deploy</strong><span>Проект запускается одной командой, поддерживает PORT, healthcheck, Docker и безопасные headers.</span></div>
+</section>
+
 <footer>
   <div class="footer-grid">
     <div>
@@ -1732,16 +1804,36 @@ function toggleList() {
   btn.classList.toggle('listed');
 }
 
-// ──────────────── NAVIGATION ────────────────
-function navigateHome() {
-  document.getElementById('home-page').style.display = 'block';
-  document.getElementById('watch-page').style.display = 'none';
-  window.scrollTo(0, 0);
-}
 
-function navigateSection(section) {
-  alert(`Раздел "${section}" в разработке`);
+const routeMap = { films: 'catalog', series: 'catalog', top10: 'catalog', new: 'catalog', trending: 'catalog', continue: 'profile', profile: 'profile' };
+function showSurface(name) {
+  document.getElementById('home-page').style.display = name === 'home' ? 'block' : 'none';
+  document.getElementById('watch-page').style.display = 'none';
+  document.querySelectorAll('.app-surface').forEach(el => el.classList.toggle('on', el.id === `${name}-page`));
+  document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+  if (name === 'catalog') renderCatalog();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+function renderCatalog() {
+  const grid = document.getElementById('catalog-grid'); if (!grid) return;
+  const q = (document.getElementById('catalog-query')?.value || '').toLowerCase();
+  const type = document.getElementById('catalog-type')?.value || 'all';
+  const genre = document.getElementById('catalog-genre')?.value || 'all';
+  const sort = document.getElementById('catalog-sort')?.value || 'rating';
+  let items = Object.entries(mediaData).filter(([key,item]) => {
+    const haystack = `${item.title} ${item.orig} ${(item.genres||[]).join(' ')} ${item.studio||''}`.toLowerCase();
+    const itemType = item.seasons ? 'series' : 'movie';
+    return (!q || haystack.includes(q)) && (type === 'all' || type === itemType) && (genre === 'all' || (item.genres||[]).includes(genre));
+  });
+  items.sort((a,b) => sort === 'title' ? a[1].title.localeCompare(b[1].title, 'ru') : (b[1][sort] || 0) - (a[1][sort] || 0));
+  grid.innerHTML = items.map(([key,item]) => `<article class="catalog-card" tabindex="0" onclick="playMovie('${key}','${item.title}')"><img src="${item.poster}" alt="${item.title}" loading="lazy"><div class="catalog-card-body"><div class="catalog-card-title">${item.title}</div><div class="catalog-card-meta">★ ${item.rating} • ${item.year} • ${(item.genres||[]).slice(0,2).join(', ')}</div></div></article>`).join('') || '<p class="surface-desc">Ничего не найдено. Попробуйте изменить фильтры.</p>';
+}
+function saveCatalogFilters() { localStorage.setItem('noir.catalog.filters', JSON.stringify({ q: document.getElementById('catalog-query').value, type: document.getElementById('catalog-type').value, genre: document.getElementById('catalog-genre').value, sort: document.getElementById('catalog-sort').value })); alert('Фильтры сохранены для следующей сессии'); }
+
+// ──────────────── NAVIGATION ────────────────
+function navigateHome() { showSurface('home'); }
+
+function navigateSection(section) { showSurface(routeMap[section] || 'catalog'); }
 </script>
 </body>
 </html>

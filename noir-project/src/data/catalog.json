@@ -1,0 +1,30 @@
+[
+  {
+    "id": "oppenheimer", "type": "movie", "title": "Оппенгеймер", "originalTitle": "Oppenheimer", "year": 2023, "releaseDate": "2023-07-21", "ageRating": "18+", "runtimeMinutes": 180, "status": "released", "country": "США", "studio": "Universal Pictures", "quality": ["4K", "HDR", "Dolby Atmos"], "genres": ["Биография", "Драма", "История"], "rating": 8.5, "popularity": 98.7,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+    "overview": "История американского физика Роберта Оппенгеймера и его роли в создании атомной бомбы во время Второй мировой войны.",
+    "people": { "actors": ["Киллиан Мёрфи", "Эмили Блант", "Роберт Дауни мл."], "directors": ["Кристофер Нолан"], "writers": ["Кристофер Нолан"] },
+    "externalIds": { "tmdb": "872585", "balancer": "kp-4664634" }, "trailerUrl": "https://www.youtube.com/embed/uYPbbksJxIg"
+  },
+  {
+    "id": "dune-part-two", "type": "movie", "title": "Дюна: Часть вторая", "originalTitle": "Dune: Part Two", "year": 2024, "releaseDate": "2024-03-01", "ageRating": "16+", "runtimeMinutes": 166, "status": "released", "country": "США", "studio": "Legendary Pictures", "quality": ["4K", "HDR"], "genres": ["Фантастика", "Приключения", "Драма"], "rating": 8.6, "popularity": 99.4,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+    "overview": "Пол Атрейдес объединяется с Чани и фременами, чтобы отомстить заговорщикам, уничтожившим его семью.",
+    "people": { "actors": ["Тимоти Шаламе", "Зендея", "Ребекка Фергюсон"], "directors": ["Дени Вильнёв"], "writers": ["Дени Вильнёв", "Джон Спэйтс"] },
+    "externalIds": { "tmdb": "693134", "balancer": "kp-4540126" }, "trailerUrl": "https://www.youtube.com/embed/Way9Dexny3w"
+  },
+  {
+    "id": "breaking-bad", "type": "series", "title": "Во все тяжкие", "originalTitle": "Breaking Bad", "year": 2008, "releaseDate": "2008-01-20", "ageRating": "18+", "runtimeMinutes": 47, "status": "ended", "country": "США", "studio": "AMC", "seasons": 5, "episodes": 62, "quality": ["1080p"], "genres": ["Драма", "Криминал", "Триллер"], "rating": 9.5, "popularity": 96.2,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+    "overview": "Учитель химии после диагноза рака начинает производить метамфетамин и постепенно меняет свою жизнь и семью.",
+    "people": { "actors": ["Брайан Крэнстон", "Аарон Пол", "Анна Ганн"], "directors": ["Винс Гиллиган"], "writers": ["Винс Гиллиган"] },
+    "externalIds": { "tmdb": "1396", "balancer": "kp-404900" }, "trailerUrl": "https://www.youtube.com/embed/HhesaQXLuRY"
+  },
+  {
+    "id": "dark", "type": "series", "title": "Тьма", "originalTitle": "Dark", "year": 2017, "releaseDate": "2017-12-01", "ageRating": "16+", "runtimeMinutes": 52, "status": "ended", "country": "Германия", "studio": "Netflix", "seasons": 3, "episodes": 26, "quality": ["4K", "HDR"], "genres": ["Драма", "Мистика", "Научная фантастика"], "rating": 8.8, "popularity": 91.9,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7CFCzWIZZcnxHke3yAQiGPWXHwF.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/3lBDg3i6nn5R2NKFCJ6oKyUo2j5.jpg",
+    "overview": "Исчезновение детей в немецком городке раскрывает тайны четырёх семей и петлю времени.",
+    "people": { "actors": ["Луис Хофман", "Лиза Викари", "Майя Шёне"], "directors": ["Баран бо Одар"], "writers": ["Янтье Фризе"] },
+    "externalIds": { "tmdb": "70523", "balancer": "kp-1032606" }, "trailerUrl": "https://www.youtube.com/embed/rrwycJ08PSA"
+  }
+]
