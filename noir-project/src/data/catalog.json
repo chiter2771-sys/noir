@@ -1,30 +1,562 @@
 [
   {
-    "id": "oppenheimer", "type": "movie", "title": "Оппенгеймер", "originalTitle": "Oppenheimer", "year": 2023, "releaseDate": "2023-07-21", "ageRating": "18+", "runtimeMinutes": 180, "status": "released", "country": "США", "studio": "Universal Pictures", "quality": ["4K", "HDR", "Dolby Atmos"], "genres": ["Биография", "Драма", "История"], "rating": 8.5, "popularity": 98.7,
-    "posterUrl": "https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+    "id": "oppenheimer",
+    "type": "movie",
+    "title": "Оппенгеймер",
+    "originalTitle": "Oppenheimer",
+    "year": 2023,
+    "releaseDate": "2023-07-21",
+    "ageRating": "18+",
+    "runtimeMinutes": 180,
+    "status": "released",
+    "country": "США",
+    "studio": "Universal Pictures",
+    "quality": [
+      "4K",
+      "HDR",
+      "Dolby Atmos"
+    ],
+    "genres": [
+      "Биография",
+      "Драма",
+      "История"
+    ],
+    "rating": 8.5,
+    "popularity": 98.7,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
     "overview": "История американского физика Роберта Оппенгеймера и его роли в создании атомной бомбы во время Второй мировой войны.",
-    "people": { "actors": ["Киллиан Мёрфи", "Эмили Блант", "Роберт Дауни мл."], "directors": ["Кристофер Нолан"], "writers": ["Кристофер Нолан"] },
-    "externalIds": { "tmdb": "872585", "balancer": "kp-4664634" }, "trailerUrl": "https://www.youtube.com/embed/uYPbbksJxIg"
+    "people": {
+      "actors": [
+        "Киллиан Мёрфи",
+        "Эмили Блант",
+        "Роберт Дауни мл."
+      ],
+      "directors": [
+        "Кристофер Нолан"
+      ],
+      "writers": [
+        "Кристофер Нолан"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "872585",
+      "balancer": "kp-4664634"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/uYPbbksJxIg",
+    "progress": 0
   },
   {
-    "id": "dune-part-two", "type": "movie", "title": "Дюна: Часть вторая", "originalTitle": "Dune: Part Two", "year": 2024, "releaseDate": "2024-03-01", "ageRating": "16+", "runtimeMinutes": 166, "status": "released", "country": "США", "studio": "Legendary Pictures", "quality": ["4K", "HDR"], "genres": ["Фантастика", "Приключения", "Драма"], "rating": 8.6, "popularity": 99.4,
-    "posterUrl": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-    "overview": "Пол Атрейдес объединяется с Чани и фременами, чтобы отомстить заговорщикам, уничтожившим его семью.",
-    "people": { "actors": ["Тимоти Шаламе", "Зендея", "Ребекка Фергюсон"], "directors": ["Дени Вильнёв"], "writers": ["Дени Вильнёв", "Джон Спэйтс"] },
-    "externalIds": { "tmdb": "693134", "balancer": "kp-4540126" }, "trailerUrl": "https://www.youtube.com/embed/Way9Dexny3w"
+    "id": "dune-part-two",
+    "type": "movie",
+    "title": "Дюна: Часть вторая",
+    "originalTitle": "Dune: Part Two",
+    "year": 2024,
+    "releaseDate": "2024-03-01",
+    "ageRating": "16+",
+    "runtimeMinutes": 166,
+    "status": "released",
+    "country": "США",
+    "studio": "Legendary Pictures",
+    "quality": [
+      "4K",
+      "HDR",
+      "Dolby Atmos"
+    ],
+    "genres": [
+      "Фантастика",
+      "Приключения",
+      "Драма"
+    ],
+    "rating": 8.3,
+    "popularity": 96.2,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+    "overview": "Пол Атрейдес объединяется с фременами и начинает путь мести против заговорщиков, уничтоживших его семью.",
+    "people": {
+      "actors": [
+        "Тимоти Шаламе",
+        "Зендея",
+        "Ребекка Фергюсон"
+      ],
+      "directors": [
+        "Дени Вильнёв"
+      ],
+      "writers": [
+        "Дени Вильнёв",
+        "Джон Спэйтс"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "693134",
+      "balancer": "kp-4540126"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/Way9Dexny3w"
   },
   {
-    "id": "breaking-bad", "type": "series", "title": "Во все тяжкие", "originalTitle": "Breaking Bad", "year": 2008, "releaseDate": "2008-01-20", "ageRating": "18+", "runtimeMinutes": 47, "status": "ended", "country": "США", "studio": "AMC", "seasons": 5, "episodes": 62, "quality": ["1080p"], "genres": ["Драма", "Криминал", "Триллер"], "rating": 9.5, "popularity": 96.2,
-    "posterUrl": "https://image.tmdb.org/t/p/w500/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
-    "overview": "Учитель химии после диагноза рака начинает производить метамфетамин и постепенно меняет свою жизнь и семью.",
-    "people": { "actors": ["Брайан Крэнстон", "Аарон Пол", "Анна Ганн"], "directors": ["Винс Гиллиган"], "writers": ["Винс Гиллиган"] },
-    "externalIds": { "tmdb": "1396", "balancer": "kp-404900" }, "trailerUrl": "https://www.youtube.com/embed/HhesaQXLuRY"
+    "id": "poor-things",
+    "type": "movie",
+    "title": "Бедные-несчастные",
+    "originalTitle": "Poor Things",
+    "year": 2023,
+    "releaseDate": "2023-12-08",
+    "ageRating": "18+",
+    "runtimeMinutes": 142,
+    "status": "released",
+    "country": "Ирландия",
+    "studio": "Searchlight Pictures",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Фантастика",
+      "Комедия",
+      "Драма"
+    ],
+    "rating": 7.7,
+    "popularity": 88.4,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kCGlIMHnOm8JPXq3rXM6c5wMxcT.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/bQS43HSLZzMjZkcHJz4fGc7fNdz.jpg",
+    "overview": "Белла Бакстер отправляется в дерзкое путешествие самопознания и свободы в мире, который пытается её приручить.",
+    "people": {
+      "actors": [
+        "Эмма Стоун",
+        "Марк Руффало",
+        "Уиллем Дефо"
+      ],
+      "directors": [
+        "Йоргос Лантимос"
+      ],
+      "writers": [
+        "Тони Макнамара"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "792307",
+      "balancer": "kp-4396438"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/RlbR5N6veqw"
   },
   {
-    "id": "dark", "type": "series", "title": "Тьма", "originalTitle": "Dark", "year": 2017, "releaseDate": "2017-12-01", "ageRating": "16+", "runtimeMinutes": 52, "status": "ended", "country": "Германия", "studio": "Netflix", "seasons": 3, "episodes": 26, "quality": ["4K", "HDR"], "genres": ["Драма", "Мистика", "Научная фантастика"], "rating": 8.8, "popularity": 91.9,
-    "posterUrl": "https://image.tmdb.org/t/p/w500/7CFCzWIZZcnxHke3yAQiGPWXHwF.jpg", "backdropUrl": "https://image.tmdb.org/t/p/original/3lBDg3i6nn5R2NKFCJ6oKyUo2j5.jpg",
-    "overview": "Исчезновение детей в немецком городке раскрывает тайны четырёх семей и петлю времени.",
-    "people": { "actors": ["Луис Хофман", "Лиза Викари", "Майя Шёне"], "directors": ["Баран бо Одар"], "writers": ["Янтье Фризе"] },
-    "externalIds": { "tmdb": "70523", "balancer": "kp-1032606" }, "trailerUrl": "https://www.youtube.com/embed/rrwycJ08PSA"
+    "id": "killers-flower-moon",
+    "type": "movie",
+    "title": "Убийцы цветочной луны",
+    "originalTitle": "Killers of the Flower Moon",
+    "year": 2023,
+    "releaseDate": "2023-10-20",
+    "ageRating": "18+",
+    "runtimeMinutes": 206,
+    "status": "released",
+    "country": "США",
+    "studio": "Apple Studios",
+    "quality": [
+      "4K",
+      "Dolby Vision"
+    ],
+    "genres": [
+      "Криминал",
+      "Драма",
+      "История"
+    ],
+    "rating": 7.8,
+    "popularity": 86.1,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dB6Krk806zeqd0YNp2ngQ9zXteH.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/1X7vow16X7CnCoexXh4H4F2yDJv.jpg",
+    "overview": "В округе Осейдж серия убийств раскрывает заговор вокруг нефтяных богатств коренного народа.",
+    "people": {
+      "actors": [
+        "Леонардо ДиКаприо",
+        "Роберт Де Ниро",
+        "Лили Гладстоун"
+      ],
+      "directors": [
+        "Мартин Скорсезе"
+      ],
+      "writers": [
+        "Эрик Рот",
+        "Мартин Скорсезе"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "466420",
+      "balancer": "kp-1114927"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/EP34Yoxs3FQ"
+  },
+  {
+    "id": "the-last-of-us",
+    "type": "series",
+    "title": "Одни из нас",
+    "originalTitle": "The Last of Us",
+    "year": 2023,
+    "releaseDate": "2023-01-15",
+    "ageRating": "18+",
+    "runtimeMinutes": 55,
+    "status": "released",
+    "country": "США",
+    "studio": "HBO",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Драма",
+      "Постапокалипсис",
+      "Приключения"
+    ],
+    "rating": 8.7,
+    "popularity": 94.9,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg",
+    "overview": "Джоэл и Элли пересекают разрушенную Америку, где выживание требует доверия дороже оружия.",
+    "people": {
+      "actors": [
+        "Педро Паскаль",
+        "Белла Рамзи",
+        "Анна Торв"
+      ],
+      "directors": [
+        "Крейг Мейзин"
+      ],
+      "writers": [
+        "Нил Дракманн",
+        "Крейг Мейзин"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "100088",
+      "balancer": "kp-1309570"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/uLtkt8BonwM",
+    "progress": 64,
+    "seasons": 1,
+    "episodes": 9
+  },
+  {
+    "id": "shogun",
+    "type": "series",
+    "title": "Сёгун",
+    "originalTitle": "Shōgun",
+    "year": 2024,
+    "releaseDate": "2024-02-27",
+    "ageRating": "18+",
+    "runtimeMinutes": 60,
+    "status": "released",
+    "country": "США",
+    "studio": "FX Productions",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Драма",
+      "История",
+      "Военный"
+    ],
+    "rating": 8.6,
+    "popularity": 92.5,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7O4iVfOMQmdCSxhOg1WnzG1AgYT.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/9faGSFi5jam6pDWGNd0p8JcJgXQ.jpg",
+    "overview": "Английский штурман оказывается в Японии XVII века и становится частью опасной борьбы за власть.",
+    "people": {
+      "actors": [
+        "Хироюки Санада",
+        "Космо Джарвис",
+        "Анна Савай"
+      ],
+      "directors": [
+        "Джонатан ван Тюллекен"
+      ],
+      "writers": [
+        "Рэйчел Кондо",
+        "Джастин Маркс"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "126308",
+      "balancer": "kp-5059020"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/yAN5uspO_hk",
+    "progress": 28,
+    "seasons": 1,
+    "episodes": 10
+  },
+  {
+    "id": "dark",
+    "type": "series",
+    "title": "Тьма",
+    "originalTitle": "Dark",
+    "year": 2017,
+    "releaseDate": "2017-12-01",
+    "ageRating": "16+",
+    "runtimeMinutes": 53,
+    "status": "released",
+    "country": "Германия",
+    "studio": "Wiedemann & Berg Television",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Фантастика",
+      "Триллер",
+      "Драма"
+    ],
+    "rating": 8.8,
+    "popularity": 89.7,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/3lBDg3i6nn5R2NKFCJ6oKyUo2j5.jpg",
+    "overview": "Исчезновение ребёнка раскрывает тайны четырёх семей и петлю времени в немецком городе Винден.",
+    "people": {
+      "actors": [
+        "Луис Хофманн",
+        "Лиза Викари",
+        "Майя Шёне"
+      ],
+      "directors": [
+        "Баран бо Одар"
+      ],
+      "writers": [
+        "Янтье Фризе"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "70523",
+      "balancer": "kp-1200189"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/rrwycJ08PSA",
+    "progress": 72,
+    "seasons": 3,
+    "episodes": 26
+  },
+  {
+    "id": "breaking-bad",
+    "type": "series",
+    "title": "Во все тяжкие",
+    "originalTitle": "Breaking Bad",
+    "year": 2008,
+    "releaseDate": "2008-01-20",
+    "ageRating": "18+",
+    "runtimeMinutes": 47,
+    "status": "released",
+    "country": "США",
+    "studio": "AMC",
+    "quality": [
+      "4K"
+    ],
+    "genres": [
+      "Криминал",
+      "Драма",
+      "Триллер"
+    ],
+    "rating": 9.5,
+    "popularity": 99.1,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+    "overview": "Учитель химии с тяжёлым диагнозом превращает отчаяние в криминальную империю.",
+    "people": {
+      "actors": [
+        "Брайан Крэнстон",
+        "Аарон Пол",
+        "Анна Ганн"
+      ],
+      "directors": [
+        "Винс Гиллиган"
+      ],
+      "writers": [
+        "Винс Гиллиган"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "1396",
+      "balancer": "kp-404900"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/HhesaQXLuRY",
+    "progress": 41,
+    "seasons": 5,
+    "episodes": 62
+  },
+  {
+    "id": "spirited-away",
+    "type": "anime",
+    "title": "Унесённые призраками",
+    "originalTitle": "千と千尋の神隠し",
+    "year": 2001,
+    "releaseDate": "2001-07-20",
+    "ageRating": "6+",
+    "runtimeMinutes": 125,
+    "status": "released",
+    "country": "Япония",
+    "studio": "Studio Ghibli",
+    "quality": [
+      "HD"
+    ],
+    "genres": [
+      "Аниме",
+      "Фэнтези",
+      "Семейный"
+    ],
+    "rating": 8.5,
+    "popularity": 91.4,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/mSDsSDwaP3E7dEfUPWy4J0djt4O.jpg",
+    "overview": "Тихиро попадает в мир духов и должна найти смелость, чтобы спасти родителей и вернуться домой.",
+    "people": {
+      "actors": [
+        "Руми Хиираги",
+        "Мию Ирино",
+        "Мари Нацуки"
+      ],
+      "directors": [
+        "Хаяо Миядзаки"
+      ],
+      "writers": [
+        "Хаяо Миядзаки"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "129",
+      "balancer": "kp-370"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/ByXuk9QqQkk"
+  },
+  {
+    "id": "your-name",
+    "type": "anime",
+    "title": "Твоё имя",
+    "originalTitle": "君の名は。",
+    "year": 2016,
+    "releaseDate": "2016-08-26",
+    "ageRating": "12+",
+    "runtimeMinutes": 106,
+    "status": "released",
+    "country": "Япония",
+    "studio": "CoMix Wave Films",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Аниме",
+      "Романтика",
+      "Фэнтези"
+    ],
+    "rating": 8.4,
+    "popularity": 88.8,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/i1GT0e6Crg6UezT3ibXnMS3pBAd.jpg",
+    "overview": "Два подростка из разных городов загадочно меняются телами и ищут друг друга сквозь время.",
+    "people": {
+      "actors": [
+        "Рюносукэ Камики",
+        "Моне Камисираиси",
+        "Рё Нарита"
+      ],
+      "directors": [
+        "Макото Синкай"
+      ],
+      "writers": [
+        "Макото Синкай"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "372058",
+      "balancer": "kp-958722"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/xU47nhruN-Q"
+  },
+  {
+    "id": "inside-out-2",
+    "type": "animation",
+    "title": "Головоломка 2",
+    "originalTitle": "Inside Out 2",
+    "year": 2024,
+    "releaseDate": "2024-06-14",
+    "ageRating": "6+",
+    "runtimeMinutes": 97,
+    "status": "released",
+    "country": "США",
+    "studio": "Pixar",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Мультфильм",
+      "Семейный",
+      "Комедия"
+    ],
+    "rating": 7.6,
+    "popularity": 95.3,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg",
+    "overview": "Райли становится подростком, а в штаб-квартире эмоций появляются новые сложные чувства.",
+    "people": {
+      "actors": [
+        "Эми Полер",
+        "Майя Хоук",
+        "Кенсингтон Толлман"
+      ],
+      "directors": [
+        "Келси Манн"
+      ],
+      "writers": [
+        "Мег Лефов"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "1022789",
+      "balancer": "kp-5061547"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/LEjhY15eCx0"
+  },
+  {
+    "id": "arcane",
+    "type": "animation",
+    "title": "Аркейн",
+    "originalTitle": "Arcane",
+    "year": 2021,
+    "releaseDate": "2021-11-06",
+    "ageRating": "16+",
+    "runtimeMinutes": 41,
+    "status": "released",
+    "country": "США",
+    "studio": "Fortiche Production",
+    "quality": [
+      "4K",
+      "HDR"
+    ],
+    "genres": [
+      "Анимация",
+      "Фэнтези",
+      "Экшен"
+    ],
+    "rating": 8.7,
+    "popularity": 90.2,
+    "posterUrl": "https://image.tmdb.org/t/p/w500/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/rn9P3NETA5nLkS57L00mS39mEG6.jpg",
+    "overview": "Сёстры из Зауна и Пилтовера оказываются по разные стороны технологической революции.",
+    "people": {
+      "actors": [
+        "Хейли Стайнфелд",
+        "Элла Пернелл",
+        "Кевин Алехандро"
+      ],
+      "directors": [
+        "Паскаль Шаррю"
+      ],
+      "writers": [
+        "Кристиан Линке"
+      ]
+    },
+    "externalIds": {
+      "tmdb": "94605",
+      "balancer": "kp-4445150"
+    },
+    "trailerUrl": "https://www.youtube.com/embed/fXmAurh012s",
+    "progress": 15,
+    "seasons": 2,
+    "episodes": 18
   }
 ]
