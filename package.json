@@ -1,0 +1,13 @@
+{
+  "name": "noir-railway-root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node noir-project/server.js",
+    "check": "npm --prefix noir-project run check"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {}
+}
