@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check src/js/platform-config.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
