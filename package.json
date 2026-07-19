@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node noir-project/server.js",
-    "check": "npm --prefix noir-project run check"
+    "check": "npm --prefix noir-project run check",
+    "smoke:api": "node scripts/smoke-api.mjs"
   },
   "engines": {
     "node": ">=20"
