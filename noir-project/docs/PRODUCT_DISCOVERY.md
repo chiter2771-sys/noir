@@ -1,107 +1,130 @@
 # NOIR Product Discovery
 
 ## 1. Product thesis
-NOIR is a premium dark-mode digital cinema experience focused on fast content discovery, emotionally rich browsing, and a video-balancer-ready watch surface. The product language is cinematic, quiet, tactile, and precise: less interface, more intent.
+NOIR is a premium digital cinema for people who want to choose faster and feel the value of the service before playback starts. The product is cinematic, quiet, tactile and editorial: every surface should reduce choice anxiety, surface intent, and keep the user within two actions of a meaningful watch decision.
 
-## 2. Information architecture
-- **Home**: editorial spotlight, continue watching, top charts, mood-led rails, premieres, anime, collections.
-- **Catalog**: movies, series, anime, animation, new, coming soon, top, awards, channels, trailers.
-- **Discovery**: genres, mood, studios, actors, directors, collections, recommendations.
-- **Personal**: continue watching, favorites, history, lists, family profiles, kids mode, statistics.
-- **Search**: command-palette style search across titles, genres, people, directors, collections, and trending queries.
-- **Watch**: playback shell, translation/quality/subtitles, title metadata, episodes, cast, ratings, recommendations.
-- **Profile**: avatar, family profiles, subscription, devices, downloads, quality, security, parental controls.
+## 2. Product principles
+- **Content first**: interface supports artwork, metadata and motion instead of competing with them.
+- **Two-click discovery**: from any primary screen, a user can search, filter, resume or start a title in two interactions.
+- **No technical leakage**: OAuth, deployment, API and balancer implementation details stay out of customer UI.
+- **Premium restraint**: dark theme, deep spacing, controlled glow, high contrast, no decorative noise.
+- **Motion with purpose**: every transition confirms state, preserves context or increases perceived speed.
+- **Real data only**: title cards use normalized catalog metadata, real posters, real backdrops, ratings, genres, people and countries.
 
-## 3. Screen map
-1. **Global Shell**: fixed translucent navigation, horizontal ecosystem links, search trigger, notifications, profile trigger.
-2. **Home / Showcase**: rotating hero with real title artwork, high-signal metadata, primary watch CTA, save CTA, editorial rails.
-3. **Catalog Surface**: filterable grid with query, type, genre, country, quality, sort.
-4. **Spotlight Search**: instant results with posters, metadata, suggestions, trending genres, people and directors.
-5. **Watch Surface**: cinematic player contract for Video Balancer integration, metadata tabs, episodes, cast, ratings, reviews, similar titles.
-6. **Profile Surface**: family profiles, viewing stats, lists, devices, subscription and settings.
-7. **Reduced Motion / Mobile / TV states**: simplified transitions, larger targets, keyboard focus and spatial navigation.
+## 3. Information architecture
+### Global shell
+- Persistent translucent top navigation with NOIR brand, ecosystem links, Spotlight search, notifications and active profile.
+- Primary destinations: Home, Movies, Series, Anime, Animation, New, Top, Mood, Awards, Collections.
+- Secondary destinations planned in architecture: Continue Watching, Favorites, History, My Lists, Kids, Actors, Directors, Studios, TV Channels, Live, Community, Film News, Reviews, Trailers, Premiere Calendar.
 
-## 4. Core user scenarios
-- Start watching a highlighted movie from Home in one click.
-- Resume a series from Continue Watching in one click.
-- Search “Нолан”, see director/title matches, open or play in two clicks.
-- Filter catalog to “Сериалы → Драма → rating” and start watching.
-- Add a title to list/favorites and see state reflected immediately.
-- Switch family profile or enable kids mode from Profile.
-- Open Watch, choose translation/quality/subtitles, and continue playback through a future balancer adapter.
+### Content surfaces
+- **Home**: dynamic editorial showcase, continue watching, top chart, cinema rail, series rail, anime/animation rail.
+- **Catalog**: typed and filtered grid with text query, type, genre, quality and sorting.
+- **Spotlight Search**: command-palette search across titles, original titles, actors, directors and genres.
+- **Watch**: player shell prepared for a Video Balancer adapter, title detail, cast, audio/subtitle/quality controls and recommendation entry points.
+- **Profile**: family center with avatars, adult/kids mode, watch statistics, devices, subscription, downloads, security and quality.
 
-## 5. Design system
+## 4. Screen map
+1. **Home / Showcase**
+   - Hero with real backdrop, title metadata, rating, quality, age rating, watch/save/catalog actions.
+   - Rails progressively reveal content and preserve horizontal scroll position.
+2. **Catalog**
+   - Large surface title, filter bar, responsive poster grid, keyboard-watchable cards.
+3. **Spotlight**
+   - Modal overlay with autofocus, Escape close, real-time result list, trending zero-query state.
+4. **Watch**
+   - 16:9 player stage, calm pre-play state, detail tabs, cast grid and playback preference panel.
+5. **Profile**
+   - Profile card, mode chips, statistics and setting tiles for family-grade account management.
+6. **Responsive states**
+   - Desktop/laptop: full top ecosystem navigation.
+   - Tablet/mobile: compact navigation, tighter rails, large touch targets.
+   - TV/ultrawide: large hero, spatial focus, oversized metadata and cards.
+
+## 5. User scenarios
+- **Resume**: user lands on Home → Continue Watching card → Play.
+- **Editorial start**: user opens Home → accepts highlighted recommendation → Play.
+- **Intent search**: user presses Ctrl/⌘+K → types actor/director/title → opens result.
+- **Catalog filtering**: user selects Series + genre + rating sort → starts top result.
+- **Family management**: user opens Profile → switches adult/kids context → reviews quality, devices and security.
+- **Playback preparation**: user opens Watch → sees title context → chooses quality/audio/subtitles when balancer capabilities are connected.
+
+## 6. Design system
 ### Visual language
-- Background: near-black layered with subtle violet aurora and radial vignettes.
-- Surfaces: glass only for navigation/search/panels; matte cards elsewhere.
-- Light: soft violet bloom, gold rating accents, green availability badges.
-- Density: generous whitespace on desktop, compressed rails on mobile.
+- Near-black base with subtle violet aurora and bottom vignette.
+- Matte cards and panels; glass reserved for shell, filters and overlays.
+- Violet is the action color, gold is rating trust, green is availability/progress.
+- Rounded geometry: soft but precise, never playful.
 
 ### Design tokens
-- Color: `--noir-950`, `--noir-900`, `--ink`, `--muted`, `--violet`, `--violet-2`, `--gold`, `--green`, `--danger`.
-- Radius: xs 8, sm 12, md 18, lg 28, xl 36.
-- Shadow: ambient, lift, glow, focus.
-- Typography: Inter with display weights; clamped display sizes.
-- Motion: snap 160ms, hover 220ms, reveal 620ms, modal 360ms.
+- **Colors**: `--noir-980`, `--noir-950`, `--noir-900`, `--surface`, `--surface-2`, `--line`, `--ink`, `--muted`, `--dim`, `--violet`, `--violet-2`, `--violet-soft`, `--gold`, `--green`, `--danger`.
+- **Radius**: `--r-sm` 12px, `--r-md` 18px, `--r-lg` 28px.
+- **Shadow**: ambient depth, hover lift, violet action glow.
+- **Typography**: Inter, heavy negative-letterspaced display titles, readable body line-height.
+- **Spacing**: clamp-based page gutters from 20px to 72px.
+- **Motion**: `--ease` cubic-bezier(.16,1,.3,1), 160–240ms interaction, 360ms overlays, 620ms reveal, 9s hero drift.
 
-## 6. Component library
-- AppShell, TopNavigation, EcosystemNav, AvatarMenu.
-- HeroShowcase, HeroIndicator, MetadataStack.
-- ContentRail, RailControls, PosterCard, WideProgressCard, TopRankCard.
-- CatalogFilters, CatalogGrid, FilterChip.
-- SpotlightSearch, SearchResult, SuggestionPill.
-- PlayerShell, BalancerAdapterContract, PlayerControls, QualitySelector.
-- DetailTabs, EpisodesList, CastGrid, RatingCards, ReviewFeed.
-- ProfileHub, ProfileCard, SettingTile, StatsStrip.
-- Skeleton, Toast, FocusRing, Empty-but-actionable state.
+## 7. Component library
+- AppShell, TopNavigation, EcosystemNav, ProfileAvatar.
+- HeroShowcase, MetadataPill, ActionButton.
+- ContentRail, PosterCard, WideProgressCard, RankedCard.
+- CatalogFilters, CatalogGrid, FilterSelect.
+- SpotlightSearch, SearchResult, TrendingSuggestion.
+- PlayerShell, PlaybackPreferencePanel, DetailTabs, CastGrid.
+- ProfileHub, ProfileModeTabs, StatsGrid, SettingTile.
+- Accessibility primitives: SkipLink, FocusRing, ReducedMotion, KeyboardCardActivation.
 
-## 7. Animation system
-- Use transform, opacity and filter only for interaction/reveal.
-- Hero backdrop slow scale: 9s cubic bezier calm drift.
-- Cards: translateY + scale, shadow ramp and image brightness.
-- Rails: smooth native scrolling with snap and fade masks.
-- Search: opacity + translateY + backdrop blur.
-- Page transitions: display swap with fade/slide.
-- Reduced motion: disable long transitions and scroll behavior.
+## 8. Animation system
+- GPU-only transforms/opacity/filter for hover, modal and page transitions.
+- Hero backdrop uses slow scale settling to create depth without moving layout.
+- Cards lift with scale, border tint and shadow ramp; action row reveals on hover/focus.
+- Search overlay uses blur-backed presence, autofocus and Escape close.
+- Native horizontal rails use scroll snapping and hidden scrollbars for touch/trackpad comfort.
+- Reduced-motion disables animations and smooth scroll.
 
-## 8. Interface states
-- Default, hover, active, pressed, focus-visible, loading, skeleton, disabled, saved, liked, selected, current episode, error, empty with next action.
-- Every interactive element has visible focus and accessible label.
+## 9. Interface states
+- Buttons/cards: default, hover, active, pressed, focus-visible, selected, saved.
+- Data: loading, populated, filtered-empty, search-empty, rate-limited/error via API.
+- Player: pre-play, playing-ready, unavailable metadata-only, quality/audio/subtitle selected.
+- Profile: adult, kids, family, security attention, device active/inactive.
 
-## 9. Data architecture and API
-### Current source
-- `src/data/catalog.json` is the local normalized content cache with real TMDB image URLs and real title metadata.
+## 10. Data architecture and API
+### Current normalized source
+`src/data/catalog.json` is the local content cache with real public artwork URLs and real title metadata.
 
 ### Title schema
-- id, type, title, originalTitle, year, releaseDate, ageRating, runtimeMinutes, status, country, studio, quality, genres, rating, popularity, posterUrl, backdropUrl, overview, people, externalIds, trailerUrl, optional seasons/episodes, optional progress.
+- `id`, `type`, `title`, `originalTitle`, `year`, `releaseDate`, `ageRating`, `runtimeMinutes`, `status`, `country`, `studio`, `quality`, `genres`, `rating`, `popularity`, `posterUrl`, `backdropUrl`, `overview`, `people`, `externalIds`, `trailerUrl`, optional `progress`.
 
 ### API contract
 - `GET /api/catalog?type=&genre=&sort=` returns public titles and playback status.
 - `GET /api/search?q=` returns matching titles and suggestions.
-- `GET /api/playback/:id` returns Video Balancer adapter metadata: provider, externalId, translations, qualities, status.
+- `GET /api/playback/:id` returns adapter metadata for provider, external id, translations, qualities and status.
 - `GET /api/video-balancers` returns active adapter capabilities.
 
-## 10. Performance plan
-- Data-driven rendering from one JSON payload.
-- Native lazy-loaded images with explicit dimensions/aspect ratios.
-- No framework bundle; keep JS modular and defer non-critical work.
-- Preconnect to image/font origins.
-- Minimize CLS with fixed card ratios and reserved hero height.
-- Avoid layout animations; use GPU-friendly transforms.
+## 11. Video architecture
+- The customer UI says “Смотреть” and “Воспроизведение”; it never exposes implementation labels.
+- Server playback endpoint is the boundary for a future Video Balancer adapter.
+- Balancer provider, base URL and keys must come from the hosting environment, never from customer-facing client code.
+- Watch screen consumes catalog metadata now and can later request streams, translations, subtitles, episodes and watch position through `/api/playback/:id`.
 
-## 11. Accessibility plan
-- Landmarks: nav, main, sections, dialogs.
-- Buttons have labels and focus-visible rings.
-- Search dialog supports Escape and autofocus.
-- Keyboard activation for cards via Enter/Space.
-- Reduced-motion media query.
-- Contrast-preserving tokens and semantic headings.
+## 12. Performance plan
+- Keep the current no-bundle architecture for first release increment.
+- Lazy-load posters/backdrops outside hero, reserve image aspect ratios, avoid CLS.
+- Serve TMDB artwork through the NOIR image proxy so deployed environments control caching, headers and resilience.
+- Use a single catalog payload, no blocking third-party scripts, preconnect to image/font origins.
+- Prefer native scrolling and CSS transitions over heavy JS animation.
+- Keep client rendering small and data-driven; future large catalogs should add pagination/virtualized rails.
 
-## 12. Implementation plan
-1. Replace static handmade rows with catalog-driven rendering.
-2. Expand real catalog data with movie, series and anime entries using TMDB image assets and real metadata.
-3. Upgrade global navigation into an ecosystem navigation shell.
-4. Build premium hero, rails, catalog, profile, search and watch experiences on existing server/API.
-5. Remove Unsplash/demo imagery from user surfaces.
-6. Preserve Video Balancer abstraction and keep playback UI adapter-ready.
-7. Run syntax checks and API smoke checks.
+## 13. Accessibility plan
+- Semantic landmarks and headings.
+- Skip link, keyboard navigation, visible focus, Enter/Space card activation.
+- Search dialog has role, modal semantics, Escape close and autofocus.
+- Contrast-safe dark tokens and readable body copy.
+- Reduced-motion media query protects motion-sensitive users.
+
+## 14. Implementation sequence
+1. Establish this Product Discovery and architecture before code.
+2. Remove customer-facing technical labels from UI while preserving backend adapter contracts.
+3. Upgrade customer copy, filters and empty states to feel like a finished product.
+4. Add richer account/watch states without introducing fake technical blocks.
+5. Run syntax/API smoke checks and commit only verified changes.

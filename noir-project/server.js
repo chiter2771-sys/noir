@@ -9,7 +9,8 @@ const root = join(appDir, 'src');
 const port = Number(process.env.PORT || 3000);
 const catalog = JSON.parse(readFileSync(join(root, 'data/catalog.json'), 'utf8'));
 const rateBuckets = new Map();
-const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml' };
+const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
+const imageProxyHosts = new Set(['image.tmdb.org']);
 const csp = "default-src 'self'; img-src 'self' https: data:; media-src 'self' https: blob:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com";
 const oauthProviders = {
   google: { clientId: process.env.GOOGLE_CLIENT_ID, callbackPath: '/auth/google/callback', authorizeUrl: 'https://accounts.google.com/o/oauth2/v2/auth', scopes: ['openid', 'email', 'profile'] },
@@ -74,16 +75,67 @@ function ensureCsrf(req, res) {
   return true;
 }
 
-function publicTitle(title) {
-  const watchable = title.externalIds?.balancer ? 'external-balancer' : 'metadata-only';
-  return { ...title, playbackStatus: watchable };
+function proxiedImage(url) {
+  if (!url) return '';
+  return `/api/image?url=${encodeURIComponent(url)}`;
 }
 
-function handleApi(req, res, url) {
+function publicTitle(title) {
+  const watchable = title.externalIds?.balancer ? 'external-balancer' : 'metadata-only';
+  return {
+    ...title,
+    posterUrl: proxiedImage(title.posterUrl),
+    backdropUrl: proxiedImage(title.backdropUrl),
+    sourcePosterUrl: title.posterUrl,
+    sourceBackdropUrl: title.backdropUrl,
+    playbackStatus: watchable
+  };
+}
+
+async function proxyRemoteImage(res, rawUrl) {
+  let remote;
+  try {
+    remote = new URL(rawUrl || '');
+  } catch {
+    sendJson(res, 400, { error: 'invalid_image_url' });
+    return;
+  }
+  if (remote.protocol !== 'https:' || !imageProxyHosts.has(remote.hostname)) {
+    sendJson(res, 403, { error: 'image_host_not_allowed' });
+    return;
+  }
+  try {
+    const upstream = await fetch(remote, { headers: { accept: 'image/avif,image/webp,image/*,*/*;q=0.8' } });
+    if (!upstream.ok || !upstream.body) {
+      sendJson(res, 502, { error: 'image_unavailable' });
+      return;
+    }
+    res.writeHead(200, {
+      'content-type': upstream.headers.get('content-type') || 'image/jpeg',
+      'cache-control': 'public, max-age=604800, stale-while-revalidate=86400',
+      'x-content-type-options': 'nosniff'
+    });
+    const reader = upstream.body.getReader();
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      res.write(Buffer.from(value));
+    }
+    res.end();
+  } catch {
+    sendJson(res, 502, { error: 'image_unavailable' });
+  }
+}
+
+async function handleApi(req, res, url) {
   if (!rateLimit(req, res, url.pathname.startsWith('/api/search') ? 60 : 120)) return true;
   if (!ensureCsrf(req, res)) return true;
 
-  if (url.pathname === '/health') return sendJson(res, 200, { ok: true, service: 'noir', version: '1.1.0' }), true;
+  if (url.pathname === '/health') return sendJson(res, 200, { ok: true, service: 'noir', version: '1.2.0' }), true;
+  if (url.pathname === '/api/image') {
+    await proxyRemoteImage(res, url.searchParams.get('url'));
+    return true;
+  }
   if (url.pathname === '/api/auth/providers') {
     return sendJson(res, 200, { providers: Object.fromEntries(Object.entries(oauthProviders).map(([name, cfg]) => [name, { configured: Boolean(cfg.clientId), callbackPath: cfg.callbackPath, scopes: cfg.scopes }])) }), true;
   }
@@ -124,10 +176,10 @@ function handleApi(req, res, url) {
   return false;
 }
 
-createServer((req, res) => {
+createServer(async (req, res) => {
   setSecurityHeaders(res);
   const url = new URL(req.url || '/', 'http://noir.local');
-  if (handleApi(req, res, url)) return;
+  if (await handleApi(req, res, url)) return;
 
   const urlPath = url.pathname === '/' ? '/noir_streaming.html' : decodeURIComponent(url.pathname);
   const safePath = normalize(urlPath).replace(/^\.\.(\/|\\|$)/, '');
